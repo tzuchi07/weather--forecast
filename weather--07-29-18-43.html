@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            width:100%;
+            /* height:3700px; */
+            margin:0;
+            background-image:linear-gradient(to top left,rgb(122,177,229), white);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: start;
+            overflow-x: hidden;
+        }
+
+
+        nav{
+            /* width:100%; */
+            height:70px;
+            position: fixed;
+            background-color: rgb(9,89,168);
+            background-color:rgb(0,51,153);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color:aliceblue;
+            /* box-shadow:12px 3px 1px rgb(9,56,136); */
+            box-shadow:12px 4px 1px rgb(44, 54, 105);
+            z-index: 9;
+            overflow: hidden;
+        }
+
+        .button{
+            width: 750px;
+            position: fixed;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color:aliceblue;
+            z-index: 9;
+        }
+
+        nav::before{
+            content: '';
+            width:100%;
+            height:70px;
+            position: fixed;
+            display: flex;
+            justify-content:space-between; ;
+            align-items: center;
+            color:aliceblue;
+            position: absolute;
+            box-shadow:0px 6px 1px aliceblue;
+            z-index: -8;
+            transform:translateY(-6px);
+        }
+        
+        .span-nav{
+            position: fixed;
+            width: 150px;
+            font-weight: 600;
+            font-size: 26px;
+            line-height: 64px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-shadow: 2px 2px 1px black;
+            z-index: 9;
+        }
+
+        .choosen{
+            width:100px;
+            height:44px;
+            /* border-radius: 50%; */
+            margin-right: 20px;
+            margin-bottom: 5px;
+            line-height:44px ;
+            color:rgb(9,56,136);
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-style:dashed;
+            border-color: rgb(130,187,229) ;
+            background-color:aliceblue;
+            border-radius: 5% 35% 5%;
+        }
+
+        .choosen:hover{
+           border-color:rgb(9,56,136) ;
+           border-width:3.5px;
+           line-height:37px ;
+           transform: scale(0.95);
+        }
+
+        a{
+        text-decoration: none;
+        }
+
+        a:hover{
+        text-decoration: none;
+        }
+
+        i{
+           font-size: 45px;
+           line-height: 70px;
+        }
+
+
+        .container{
+            /* display: flex; */
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            height: 3700px;
+            align-items: start;
+            padding-top: 150px;
+        }
+
+        .card-region{
+            width:82%;
+            background-color:transparent;
+            margin: auto;
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+        }
+
+        .ballon{
+            position: absolute;
+            width:700px;
+            height:700px;
+            background-image: url(./圖檔/ballon6.png);
+            bottom:300vh;
+            left:10%;
+            z-index: -5;
+            background-size: cover;
+            background-size: 40%;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* opacity: 50%; */
+            opacity: 0.97;
+        }
+
+        .ballon:before{
+            content: '';
+            position: absolute;
+            width:700px;
+            height:700px;
+            background-image: url(./圖檔/ballon2.png);
+            top:-150vh;
+            right:-80%;
+            z-index: -5;
+            background-size: cover;
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* opacity: 50%; */
+            opacity: 0.97;
+            /* overflow: hidden; */
+            animation-name:ballonmove;
+            animation-timing-function: linear;
+            animation-duration: 15s;
+            animation-direction: normal;
+            animation-iteration-count:infinite;
+        }
+
+
+
+        .ballon:after{
+            content: '';
+            position: absolute;
+            width:700px;
+            height:700px;
+            background-image: url(./圖檔/Air-Balloon2.png);
+            top:-200vh;
+            right:-50%;
+            z-index: -5;
+            transform:rotate(10deg);
+            background-size: cover;
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* opacity: 50%; */
+            opacity: 0.97;
+            /* overflow: hidden; */
+            animation-name:ballonmove2;
+            animation-timing-function: linear;
+            animation-duration: 25s;
+            animation-direction: normal;
+            animation-iteration-count:infinite;
+
+        }
+
+        @keyframes ballonmove{
+           
+            0%{ top:-200vh;
+                right:-80%;
+                transform: rotate(5deg);
+            }
+            100%{
+                right:30%;
+                top:-300vh;
+                transform: scale(0.7) rotate(-20deg);
+                opacity: 0.7;
+            }
+        }
+       
+
+       @keyframes ballonmove2{
+           
+           0%{  
+            top:300vh;
+            right:-50%;
+            transform:rotate(5deg);
+            opacity: 0.85;
+               
+           }
+           30%{
+            top:150vh;
+            right:-30%;
+            transform:scale(0.5)rotate(3deg);
+            opacity: 0.6;
+           }
+           60%{
+            transform:scale(0.4);rotate(0deg);
+           }
+
+           100%{
+            top:100vh;
+            right:-20%;
+            transform:scale(0.3)rotate(5deg);
+            opacity: 0;
+           }
+        }
+
+
+        .cloud{
+            width:500px;
+            height: 300px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            /* margin-top:10vh; */
+            /* margin-left:3%; */
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove;
+            animation-timing-function: linear;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count:infinite;
+            opacity: 0.85;
+        }
+
+
+        .cloud:before{
+            content: '';
+            width:700px;
+            height: 600px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-direction: normal;
+            animation-iteration-count:infinite;
+            left: 50%;
+            top:70vh;
+            opacity: 0.85;
+            
+        }
+
+        .cloud:after{
+            content: '';
+            width:700px;
+            height: 600px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove2;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count:infinite;
+            right: -100%;
+            top:180vh;
+            opacity: 0.85;
+        }
+
+        .cloud2{
+            width:500px;
+            height: 300px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            bottom:220vh;
+            left:3%;
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove2;
+            animation-timing-function: linear;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count:infinite;
+            opacity: 0.85;
+        }
+
+
+        .cloud2:before{
+            content: '';
+            width:700px;
+            height: 600px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove2;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-direction: normal;
+            animation-iteration-count:infinite;
+            left: 50%;
+            top:70vh;
+            opacity: 0.85;
+            
+        }
+
+        .cloud2:after{
+            content: '';
+            width:700px;
+            height: 600px;
+            background-image: url(./圖檔/cloud3.png);
+            position: absolute;
+            z-index: -5;
+            background-size: cover;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: cloudmove2;
+            animation-timing-function: linear;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count:infinite;
+            right: -100%;
+            top:180vh;
+            opacity: 0.85;
+        }
+
+       @keyframes cloudmove{
+            0%{left: 5%;};
+            20%{left: 10%;};
+            60%{left: 7%;};
+            100%{left: 10%;};
+       }
+        
+       @keyframes cloudmove2{
+            0%{right: -120%;};
+            20%{right: -90%;};
+            60%{right: -120%;};
+            100%{right: -90%;};
+       }
+
+        .card{
+            width:26%;
+            height:60vh;
+            padding:8vh 0  8vh ;
+            background-color: azure;
+            border-radius: 10px;
+            margin-bottom: 10vh;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: end;
+            justify-content: center;
+            /* background-image: url(./圖檔/rainyglass3.jpg); */
+            /* background-image: url(./圖檔/Rain2.webp); */
+            /* background-image: url(./圖檔/sunny5.jpg); */
+            background-image: url(./圖檔/yellow-rain-2.jpg);
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            color:aliceblue;
+            font-weight: 600;
+            font-size: 22px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-shadow: 1px 1px 1px black;
+            box-shadow: 3px 3px 5px rgb(9,89,168);
+            border: 3px solid rgb(130,187,229);
+            border-radius: 5% 35% 5%;
+            /* z-index: 5; */
+        }
+
+        .card:hover{
+            
+            /* box-shadow: 5px 5px 5px rgb(9,89,168); */
+            /* font-size: 20px; */
+            -webkit-box-reflect: below -150px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.18));
+            /* rotate:1 1 1 -3deg; */
+             /* transform: rotateX(30deg) rotateY(-20deg) */
+          
+            }
+
+        .card::after{
+            box-sizing:border-box ;
+            content: '';
+            width:100%;
+            height:20%;
+            background-color:rgba(255,255,255,0.2);
+            box-shadow: 5px 5px 5px rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            justify-content: center;
+            position: absolute;
+            top: 60%;
+            transform: sKewY(-50deg);
+            animation-name: glass;
+            animation-timing-function: linear;
+            animation-duration: 15s;
+            animation-direction:normal;
+            animation-iteration-count:infinite;
+        
+        }
+        
+        @keyframes glass{
+                10%{
+                    transform: 
+                    sKewY(-50deg);
+                    width:100%;
+                    height:20%;
+                    top:45% ;
+                    opacity: 0.1;}
+                25%{
+                    opacity:0.07;
+                }
+                   
+                100%{
+                    opacity:0;
+                }
+        }
+
+
+        .card > div{
+            width:40%;
+            text-align: center;
+            line-height: 100%;
+            margin-top: 15%;
+            font-size: 20px;
+        }
+
+        .card div:hover{
+           color: rgb(62, 64, 66);
+           text-shadow: none;
+           /* font-size: 21px; */
+        }
+        .card > div:nth-of-type(1){
+            /* box-sizing: border-box; */
+            font-size: 32px;
+            padding: 6px;
+            position: absolute;
+            top:20px;
+            left:20px;
+            margin: 0;
+            border-radius: 5% 50% 5%;
+            background-image:linear-gradient(to top left ,rgb(0,27,96),rgb(9,89,168),rgb(60,143,209),rgb(122,177,229), white);
+        }
+        .card > div:nth-of-type(2){
+            /* box-sizing: border-box; */
+            font-size: 24px;
+            position: absolute;
+            top:70px;
+            right:20px;
+            margin: 0;
+        }
+
+        
+        .card > div:nth-of-type(3){
+            font-size: 19px;
+        }
+
+        .card > div:nth-of-type(4){
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            margin-bottom: -10%;
+            padding-left: 8%;
+            font-size: 22px;
+        }
+
+        .card > div:nth-of-type(6){
+            font-size: 18px;
+            padding-left: 3%;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+        
+        <nav>
+        <!-- <i class="fa-solid fa-newspaper"></i> -->
+        <!-- <div class=span-nav><span >&nbsp;&nbsp;&nbsp;&nbsp;氣象預報</span></div> -->
+        <div class="button">
+        <a href="#"><div class="choosen" id="taiwan">全台灣</div></a>
+        <a href="#"><div class="choosen" id="north">北部區域</div></a>
+        <a href="#"><div class="choosen" id="middle">中部區域</div></a>
+        <a href="#"><div class="choosen" id="south">南部區域</div></a>
+        <a href="#"><div class="choosen" id="east">東部區域</div></a>
+        <a href="#"><div class="choosen" id="outer">外島區域</div> </a>
+        </div>
+    </nav>
+    <div class="container">
+        
+        <div class="cloud"></div>
+        <div class="cloud2"></div>
+        <div class="ballon"></div> 
+        <div class="card-region"></div>
+        
+
+    </div>
+
+    <script src="./js/weather-2.js"></script>
+    <script src="./js/weather--07-29-18-43.js"></script>
+
+   
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
